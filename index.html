@@ -1,141 +1,50 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <style>
-        body, h1, h2, h3, h4, h5, h6 {
-            font-family: "Lato", sans-serif
-        }
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 
-        .w3-bar, h1, button {
-            font-family: "Montserrat", sans-serif
-        }
-		
-		h2{
-		font-size : 30px;
-		}
-		
-		.header {
-			padding: 10px;
-			text-align: center;
-			background: #4d5966;
-			color: white;
-			font-size: 30px;
-		}
-		
-		body{
-		width = 50%label;
-		margin-left:auto;
-		margin-right:auto;
-		margin-top:auto
-		}
-		
-        a.button {
-            background-color: black;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            width: 300px;
-        }
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-        a.button:hover {
-            background-color: #F5B027;
-        }
-		
-		.container{
-			background-color: #2F4F4F;
-			margin-left:auto;
-			margin-right:auto;
-		}
-	
-		.grid-container {
-			display:grid;
-			grid-gap: 10px;
-			background-color: #2F4F4F;
-			padding: 10px;
-			margin-left:auto;
-			margin-right:auto;
-			justify-content: center;
-			align-items: center;
-			width:700px;
-			}
-			
-		.grid-containerb {
-			display:grid;
-			grid-gap: 10px;
-			background-color: #4682B4;
-			padding: 10px;
-			padding-right;
-			margin-left:auto;
-			margin-right:auto;
-			justify-content: end;
-			justify-items:end;
-			align-items: right;
-			width:700px;
-			}	
-			
-		.polaroid {
-			  width: 38%;
-			  background-color: white;
-			  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			  margin-left:auto;
-			  margin-right:auto;
-			}
-}
-    </style>
-</head>
-	<div class='header'>
-		<h1>ITES SG61 TESTING SITE</h1>	
-		<div class="polaroid">
-			<div class="container" style = "background-color:#333">
-			<p>CONTROLS</p>
-			</div style = "padding-bottom:10px">
-			<img src="Controls.png" style="width:100%">
-			<p style = "font-size:15px; color:black;">
-			<br>Note: these packages runs on web browsers WebGL/WebXR. 
-			<br>Windows VR : ensure that the VR software & devices are running.
-			<br>StandAlone VR : use wolvic browser to access packages.
-			<br>**if browser detects VR devices - blue icon on bottom right will be highlighted							
-		</div>
-	</div>
-<body>
-		<div class ="container" style = "background-color:#2F4F4F">
-			<div class="grid-container">
-				<h2 style = "color:white">ENDURA PREVENTIVE MAINTENANCE</h2>
-				<p style = "width:700px; font-size:20px; color:white; line-height:1.5;">
-				Multiplayer package for Endura Bi-Weekly PM Process-Kit/Target Change. 
-				<br> >> Select the Student version for guided mode (self directed learning).
-				<br> >> Use the Instructor version to host demo sessions for students. 
-				<br> !! Note: Student must use same version to join instructor's demo session.				
-				</p>
-			</div>
-		</div>
-		<div class ="container" style = "background-color:#4682B4">
-			<div" class = "grid-containerb">
-				<h2 style = "align:right; color:white">CHEMICAL SAFETY</h2>
-				<p style = "width:700px; font-size:20px; color:white; line-height:1.5; text-align:right;">
-				<br> Single Player Pacakge for Chemical safety package.
-				<br> Select the Guided mode for Self Directed Learning.
-				</p>
-			</div>
-		</div>
-		<div class ="container" style = "background-color:#CD5C5C">
-			<div class="grid-container" style = "background-color:#CD5C5C">
-				<h2 style = "color:white">LITHO CUP CLEAN FOR DNS 200W</h2>
-				<p style = "width:700px; font-size:20px; color:white; line-height:1.5;">
-				Multiplayer Package for litho DNS 200W Cup Clean Procedures.
-				<br> >> Student version : Guided, Assessment or join Instructor's Demo Session.
-				<br> >> Instructor version : Host Demo Session, Observe Student's sessions.		
-				<br> >> Updated - 130526
-				</p>
-			</div>
-		</div>
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+</style>
+
+<!-- rawgithack development URL -->
+<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+
+<body style='margin : 0px; overflow: hidden;'>
+   <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+    <a-scene
+        vr-mode-ui="enabled: false;"
+        renderer="logarithmicDepthBuffer: true;"
+        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+
+        <!-- use rawgithack to retrieve the correct url for nft marker (see 'trex' below) -->
+        <a-nft
+            type='nft' url='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
+            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+            <a-entity
+                gltf-model='Box.gltf'
+                scale="5 5 5"
+                position="100 100 0"
+                >
+            </a-entity>
+        </a-nft>
+		<a-entity camera></a-entity>
+    </a-scene>
 </body>
-</html>
